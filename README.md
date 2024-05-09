@@ -10,39 +10,15 @@ For email stages, every ip has default 2 times to try. If the limit is hit, ip w
 
 ## rest endpoints
 
-1. GET    /connect       
-query: ip
-resp: bool
-email connect stage check
-
-2. GET    /ehlo          
-query: ip,ehlo
-resp: bool
-email ehlo stage check
-
-3. GET    /mail          
-query: ip,ehlo,mail
-resp: bool
-email mail stage check
-
-4. GET    /rcpt          
-query: ip,ehlo,mail,rcpt
-resp: bool
-email rcpt stage check
-
-5. GET    /block         
-query: ip
-resp:  ok
-directly block an ip
-
-7. GET    /unblock       
-query: ip
-resp:  ok
-directly unblock an ip
-
-8. GET    /dump          
-query format('date' or absent)
-dump the cache in json format(can be used as config later).
+|name | query| resp | description| 
+|-------|--------| -----| ---|
+|GET    /connect|ip |bool, allow or not|email connect stage check|
+|GET    /ehlo   | ip,ehlo | bool| email ehlo stage check|
+|GET    /mail   | ip,ehlo,mail | bool| email mail stage check|
+|GET    /rcpt   | ip,ehlo,mail,rcpt | bool| email rcpt stage check|
+|GET    /block  | ip| 'ok' | directly block an ip|
+|GET    /unblock| ip| 'ok' | directly unblock an ip|
+|GET    /dump   | format, 'date' if not timestamp | json content| dump the cache in json format(can be used as config later).|
 
 ## config
 
